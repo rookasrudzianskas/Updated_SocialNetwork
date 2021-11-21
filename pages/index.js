@@ -8,7 +8,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>This is INSTAGRAM 2.2 🔥</h1>
+    {/*  Header */}
+    {/*  Feed   */}
+    {/*  Modal   */}
+
     </div>
   )
 }
