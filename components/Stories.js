@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import faker from 'faker';
+import Story from "./Story";
 
 
 const Stories = () => {
@@ -21,7 +22,9 @@ const Stories = () => {
 
     return (
         <div>
-
+            {suggestions.map(profile => (
+                <Story key={profile.id} img={profile.avatar} username={profile.username} />
+            ))}
         </div>
     );
 };
