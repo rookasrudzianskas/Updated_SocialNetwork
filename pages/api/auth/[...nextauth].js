@@ -18,7 +18,7 @@ export default NextAuth({
 
     // 🔥 pages
 
-    pages: [
-
-    ]
+    pages: {
+        signIn: '/auth/signin',
+    }
 });
