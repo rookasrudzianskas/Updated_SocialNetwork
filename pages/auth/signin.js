@@ -9,3 +9,12 @@ const signIn = () => {
 };
 
 export default signIn;
+
+
+export async function getServerSideProps() {
+    return {
+        props: {
+            // props that you want to pass to the page
+        },
+    };
+}
