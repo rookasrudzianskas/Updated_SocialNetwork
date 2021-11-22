@@ -10,7 +10,7 @@ const Post = ({username, caption, id, img, userImg}) => {
                 <DotsHorizontalIcon className="h-5" />
             </div>
 
-            <img src={img} className="object-cover w-full" alt=""/>
+            <img src={img} className="object-cover w-full" alt="img is here"/>
 
         </div>
     );
