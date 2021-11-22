@@ -1,8 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import faker from 'faker';
 
 
 const Stories = () => {
+
+    const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() =>  {
     //    this will 🔥 then component loads
@@ -13,6 +15,7 @@ const Stories = () => {
             }
         ));
 
+        setSuggestions(suggestions);
         // console.log(suggestions);
     }, []);
 
