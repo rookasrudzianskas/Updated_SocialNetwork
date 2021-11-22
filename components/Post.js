@@ -9,6 +9,9 @@ const Post = ({username, caption, id, img, userImg}) => {
                 <p className="flex-1 font-bold">{username}</p>
                 <DotsHorizontalIcon className="h-5" />
             </div>
+
+            <img src={img} className="object-cover w-full" alt=""/>
+
         </div>
     );
 };
