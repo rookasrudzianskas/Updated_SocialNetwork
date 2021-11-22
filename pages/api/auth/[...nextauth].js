@@ -9,9 +9,16 @@ export default NextAuth({
         }),
     ],
 
-    theme: {
-        logo: 'https://links.papareact.com/sq0',
-        brandColor: '#F13287',
-        colorScheme: 'auto',
-    }
+    // this is a little bit customized landing page for the logo 💁
+    // theme: {
+    //     logo: 'https://links.papareact.com/sq0',
+    //     brandColor: '#F13287',
+    //     colorScheme: 'auto',
+    // }
+
+    // 🔥 pages
+
+    pages: [
+
+    ]
 });
