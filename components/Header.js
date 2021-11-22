@@ -6,8 +6,9 @@ const Header = () => {
           <div>
                   <h1>I am the header</h1>
                   <div>
-                          <Image src='https://links.papareact.com/ocw' layout={'fill'} />
+                        <Image src='https://links.papareact.com/ocw' layout={'fill'} />
                   </div>
+
           {/*        middle     */}
           {/*        right      */}
 

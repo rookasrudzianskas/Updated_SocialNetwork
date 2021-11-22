@@ -8,6 +8,7 @@ export default function Home() {
         <title>Instagram 🔥</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+    {/*        done*/}
 
     {/*  Header */}
             <Header />
