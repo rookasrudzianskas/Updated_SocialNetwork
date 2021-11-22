@@ -7,14 +7,14 @@ const posts = [
         username: 'rookasrudzianskas',
         userImg: 'https://avatars.githubusercontent.com/u/38469892?v=4',
         img: 'https://avatars.githubusercontent.com/u/38469892?v=4',
-        caption: 'This is dope 🤩, Subscribe and destroy the like button!',
+        caption: 'This is dope 🤩, Subscribe and destroy the like button! 🍠',
     },
     {
         id: '123',
         username: 'rookasrudzianskas',
         userImg: 'https://avatars.githubusercontent.com/u/38469892?v=4',
         img: 'https://avatars.githubusercontent.com/u/38469892?v=4',
-        caption: 'This is dope 🤩, Subscribe and destroy the like button!',
+        caption: 'This is dope 🌃, Subscribe and destroy the like button! 🤟',
     }
 ]
 
