@@ -1,5 +1,13 @@
 import React from 'react';
 import Image from "next/image";
+import {
+    SearchIcon,
+    PlusCircleIcon,
+    UserGroupIcon,
+    HeartIcon,
+    PaperAirplaneIcon,
+    MenuIcon,
+} from "@heroicons/react/outline";
 
 const Header = () => {
         return (
@@ -16,6 +24,9 @@ const Header = () => {
                   {/*        middle     */}
 
                   <div>
+                      <div>
+
+                      </div>
                       <input type="text" placeholder="Search"/>
                   </div>
 
