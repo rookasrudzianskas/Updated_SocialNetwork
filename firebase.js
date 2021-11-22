@@ -1,5 +1,7 @@
 // firebase 🔥 this is all in firebase v9.0 👉
 import { initializeApp, getApp, getApps } from 'firebase/app';
+import {getFirestore} from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -18,4 +20,9 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 // firestore initialization
 const db = getFirestore();
+
+// initialize storage
+const storage = getStorage();
+
+export { app, db, storage };
 
