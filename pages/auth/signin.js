@@ -31,3 +31,5 @@ export async function getServerSideProps() {
         },
     };
 }
+
+//http://localhost:3000/api/auth/callback/google' 👉 for the second one
