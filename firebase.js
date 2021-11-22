@@ -1,4 +1,4 @@
-// firebase
+// firebase 🔥 this is all in firebase v9.0 👉
 import { initializeApp, getApp, getApps } from 'firebase/app';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -13,5 +13,9 @@ const firebaseConfig = {
 };
 
 // initialize firebase
-const app = initializeApp(firebaseConfig);
+// if there are no apps, we initialize one, if there is, we get the first one
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// firestore initialization
+const db = getFirestore();
 
