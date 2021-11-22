@@ -1,5 +1,6 @@
 import React from 'react';
-import {DotsHorizontalIcon} from "@heroicons/react/outline";
+import {BookmarkIcon, ChatIcon, DotsHorizontalIcon, HeartIcon, PaperAirplaneIcon} from "@heroicons/react/outline";
+import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
 
 const Post = ({username, caption, id, img, userImg}) => {
     return (
@@ -11,6 +12,15 @@ const Post = ({username, caption, id, img, userImg}) => {
             </div>
 
             <img src={img} className="object-cover w-full" alt="img is here"/>
+
+            <div className="flex justify-between px-4 pt-4">
+                <div className="flex space-x-4">
+                    <HeartIcon className="btn" />
+                    <ChatIcon className="btn" />
+                    <PaperAirplaneIcon className="btn" />
+                </div>
+                <BookmarkIcon className="btn" />
+            </div>
 
         </div>
     );
