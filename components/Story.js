@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Story = ({username, photo}) => {
+const Story = ({username, img}) => {
     return (
         <div>
-
+            <img src={img} alt=""/>
+            <p>{username}</p>
         </div>
     );
 };
