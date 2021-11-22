@@ -6,7 +6,14 @@ const Stories = () => {
 
     useEffect(() =>  {
     //    this will 🔥 then component loads
+        const suggestions = [...Array(20)].map((_, i) => (
+            {
+                ...faker.helpers.contextualCard(),
+                id: i,
+            }
+        ));
 
+        // console.log(suggestions);
     }, []);
 
     return (
