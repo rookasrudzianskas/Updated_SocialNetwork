@@ -13,7 +13,7 @@ const Header = () => {
         return (
           <div className="">
               <div className="flex justify-between bg-white max-w-6xl">
-                  <div className="relative hidden lg:inline-grid w-24 h-24 cursor-pointer">
+                  <div className="relative hidden lg:inline-grid w-24 cursor-pointer">
                       <Image src="https://links.papareact.com/ocw" layout={'fill'} objectFit={'contain'} />
                   </div>
 
@@ -23,9 +23,9 @@ const Header = () => {
 
                   {/*        middle     */}
 
-                  <div>
-                      <div>
-                        <SearchIcon className='h-5 w-5' />
+                  <div className="relative mt-1 p-3 rounded-md bg-red-500">
+                      <div className="absolute inset-y-0 pl-3 flex items-center pointer-events-none">
+                        <SearchIcon className='h-5 w-5 text-gray-500' />
                       </div>
                       <input type="text" placeholder="Search"/>
                   </div>
