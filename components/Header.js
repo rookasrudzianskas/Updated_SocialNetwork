@@ -3,17 +3,15 @@ import Image from "next/image";
 
 const Header = () => {
         return (
-                <div>
-                {/*  Left  */}
-                        <div className="">
-                                <Image
-                                        src='https://links.papareact.com/ocw'
-                                        layout="fill"
-                                />
-                        </div>
-                {/*  Middle  */}
-                {/*  Right  */}
-                </div>
+          <div>
+                  <h1>I am the header</h1>
+                  <div>
+                          <Image src='https://links.papareact.com/ocw' layout={'fill'} />
+                  </div>
+          {/*        middle     */}
+          {/*        right      */}
+
+          </div>
         );
 };
 
