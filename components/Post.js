@@ -35,7 +35,7 @@ const Post = ({username, caption, id, img, userImg}) => {
 
             <form className="flex items-center p-4">
                 <EmojiHappyIcon className="h-7" />
-                <input type="text" className="border-none flex-1 focus:ring-0" placeholder="Add a comment..."/>
+                <input type="text" className="border-none flex-1 focus:ring-0 outline-none" placeholder="Add a comment..."/>
             </form>
 
         </div>
