@@ -1,5 +1,5 @@
 // firebase
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApp, getApps } from 'firebase/app';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -12,5 +12,6 @@ const firebaseConfig = {
     measurementId: "G-T625TGREPR"
 };
 
+// initialize firebase
 const app = initializeApp(firebaseConfig);
 
