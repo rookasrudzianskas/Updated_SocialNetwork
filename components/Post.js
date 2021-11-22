@@ -1,5 +1,12 @@
 import React from 'react';
-import {BookmarkIcon, ChatIcon, DotsHorizontalIcon, HeartIcon, PaperAirplaneIcon} from "@heroicons/react/outline";
+import {
+    BookmarkIcon,
+    ChatIcon,
+    DotsHorizontalIcon,
+    EmojiHappyIcon,
+    HeartIcon,
+    PaperAirplaneIcon
+} from "@heroicons/react/outline";
 import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
 
 const Post = ({username, caption, id, img, userImg}) => {
@@ -21,6 +28,15 @@ const Post = ({username, caption, id, img, userImg}) => {
                 </div>
                 <BookmarkIcon className="btn" />
             </div>
+
+            <p className="p-5 truncate">
+                <span className="font-bold mr-1">{username} </span>{caption}
+            </p>
+
+            <form className="flex items-center p-4">
+                <EmojiHappyIcon className="h-7" />
+                <input type="text" className="border-none flex-1 focus:ring-0" placeholder="Add a comment..."/>
+            </form>
 
         </div>
     );
