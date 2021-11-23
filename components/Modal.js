@@ -20,6 +20,7 @@ const Modal = () => {
         reader.onload = (readerEvent) => {
             setSelectedFile(readerEvent.target.result);
         }
+        //    doe the reading 🔥
     }
 
     return (
