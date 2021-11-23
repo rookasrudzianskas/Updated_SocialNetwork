@@ -9,7 +9,7 @@ import {useSession} from "next-auth/react";
 import {db, storage} from "../firebase";
 
 const Modal = () => {
-    const [open, setOpen] = useRecoilState(modalState);
+    const [open, setOpen] = useRecoilState(modalState || false);
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(false);
 

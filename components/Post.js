@@ -8,8 +8,12 @@ import {
     PaperAirplaneIcon
 } from "@heroicons/react/outline";
 import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
+import {useSession} from "next-auth/react";
 
 const Post = ({username, caption, id, img, userImg}) => {
+
+    const {data: session} = useSession();
+
     return (
         <div className="bg-white my-7 border rounded-sm">
             <div className="flex items-center p-5">
@@ -20,14 +24,16 @@ const Post = ({username, caption, id, img, userImg}) => {
 
             <img src={img} className="object-cover w-full" alt="img is here"/>
 
-            <div className="flex justify-between px-4 pt-4">
-                <div className="flex space-x-4">
-                    <HeartIcon className="btn" />
-                    <ChatIcon className="btn" />
-                    <PaperAirplaneIcon className="btn" />
+            {session && (
+                <div className="flex justify-between px-4 pt-4">
+                    <div className="flex space-x-4">
+                        <HeartIcon className="btn" />
+                        <ChatIcon className="btn" />
+                        <PaperAirplaneIcon className="btn" />
+                    </div>
+                    <BookmarkIcon className="btn" />
                 </div>
-                <BookmarkIcon className="btn" />
-            </div>
+            )}
 
             <p className="p-5 truncate">
                 <span className="font-bold mr-1">{username} </span>{caption}
