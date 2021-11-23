@@ -29,7 +29,8 @@ const Post = ({username, caption, id, img, userImg}) => {
     useEffect(() => onSnapshot(collection(db, 'posts', id, 'likes'), snapshot => setLikes(snapshot.docs)) ,[db, id]);
 
     useEffect(() => {
-        setHasLiked(likes.findIndex((like) => (like.id === session?.user?.uid) !== -1));
+            setHasLiked(likes.findIndex(like => (like.id === session?.user?.uid)) !== -1
+        );
     }, [likes]);
 
     const likePost = async () => {
@@ -68,7 +69,13 @@ const Post = ({username, caption, id, img, userImg}) => {
             {session && (
                 <div className="flex justify-between px-4 pt-4">
                     <div className="flex space-x-4">
-                        <HeartIcon onClick={likePost} className="btn" />
+                        {
+                            hasLiked ? (
+                                <HeartIcon onClick={likePost} className="btn" />
+                            ) : (
+                                <HeartIconFilled onClick={likePost} className="btn text-red-600" />
+                            )
+                        }
                         <ChatIcon className="btn" />
                         <PaperAirplaneIcon className="btn" />
                     </div>
