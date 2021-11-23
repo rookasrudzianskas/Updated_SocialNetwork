@@ -9,7 +9,7 @@ const signIn = ({ providers }) => {
             <Header />
             {Object.values(providers).map((provider) => (
                 <div key={provider.name}>
-                    <button onClick={() => SignIntoProvider(provider.id)}>
+                    <button className="p-3 bg-blue-500 rounded-lg text-white" onClick={() => SignIntoProvider(provider.id)}>
                         Sign in with {provider.name}
                     </button>
                 </div>
