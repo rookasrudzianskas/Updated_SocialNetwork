@@ -3,7 +3,7 @@ import {modalState} from "../atoms/modalAtom";
 import {useRecoilState} from "recoil";
 import { Dialog, Transition } from '@headlessui/react'
 import {CameraIcon} from "@heroicons/react/outline";
-import {collection, addDoc} from '@firebase/firestore';
+import {collection, addDoc, serverTimestamp} from '@firebase/firestore';
 import {useSession} from "next-auth/react";
 
 const Modal = () => {
@@ -35,6 +35,8 @@ const Modal = () => {
         const docRef = await addDoc(collection(db, 'posts'), {
             username: session.user.username,
             caption: captionRef.current.value,
+            profileImg: session.user.image,
+            timestamp: serverTimestamp(),
         });
 
     }
