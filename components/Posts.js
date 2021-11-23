@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from "./Post";
-import {useState} from 'react';
-import {collection} from "@firebase/firestore";
+import {useState, useEffect} from 'react';
+import {collection, onSnapshot, query, orderBy} from "@firebase/firestore";
 import {db} from "../firebase";
 
 const Posts = () => {
@@ -18,7 +18,7 @@ const Posts = () => {
     return (
         <div>
             {posts.map((post) => (
-                <Post key={post.id} id={post.id} username={post.username} userImg={post.userImg} img={post.img} caption={post.caption} />
+                <Post key={post.id} id={post.id} username={post.data().username} userImg={post.data().profileImg} img={post.data().image} caption={post.data().caption} />
             ))}
         </div>
     );
