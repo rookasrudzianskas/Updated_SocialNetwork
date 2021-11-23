@@ -39,6 +39,8 @@ const Modal = () => {
             timestamp: serverTimestamp(),
         });
 
+        console.log('New doc added with id', docRef.id);
+
     }
 
     const addImageToPost = (e) => {
