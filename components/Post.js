@@ -19,12 +19,16 @@ const Post = ({username, caption, id, img, userImg}) => {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const [likes, setLikes] = useState([]);
+    const [hasLiked, setHasLiked] = useState(false);
+
     const {data: session} = useSession();
 
 
     useEffect(() =>  onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs)), [db, id]);
 
     useEffect(() => onSnapshot(collection(db, 'posts', id, 'likes'), snapshot => setLikes(snapshot.docs)) ,[db, id]);
+
+    useEffect(() => setHasLiked(likes.findIndex((like) => (like.id === session?.user?.uid) !== -1)), [likes]);
 
     const likePost = async () => {
         await setDoc(doc(db, 'posts', id, 'likes', session.user.uid), {
@@ -58,7 +62,7 @@ const Post = ({username, caption, id, img, userImg}) => {
             {session && (
                 <div className="flex justify-between px-4 pt-4">
                     <div className="flex space-x-4">
-                        <HeartIcon className="btn" />
+                        <HeartIcon onClick={likePost} className="btn" />
                         <ChatIcon className="btn" />
                         <PaperAirplaneIcon className="btn" />
                     </div>
