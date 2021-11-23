@@ -10,7 +10,7 @@ import {
 import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
 import {useSession} from "next-auth/react";
 import {useState} from 'react';
-import {addDoc, collection, serverTimestamp} from "@firebase/firestore";
+import {addDoc, collection, onSnapshot, orderBy, query, serverTimestamp} from "@firebase/firestore";
 import {db} from "../firebase";
 import {useEffect} from 'react';
 
@@ -20,9 +20,7 @@ const Post = ({username, caption, id, img, userImg}) => {
     const {data: session} = useSession();
 
 
-    useEffect(() =>  {
-
-    }, [db]);
+    useEffect(() =>  onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs)), [db]);
 
     const sendComment = async (e) => {
         e.preventDefault();
