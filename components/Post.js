@@ -12,6 +12,7 @@ import {useSession} from "next-auth/react";
 import {useState} from 'react';
 
 const Post = ({username, caption, id, img, userImg}) => {
+    const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const {data: session} = useSession();
 
