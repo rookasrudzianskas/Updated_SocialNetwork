@@ -18,10 +18,13 @@ import Moment from "react-moment";
 const Post = ({username, caption, id, img, userImg}) => {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+    const [likes, setLikes] = useState([]);
     const {data: session} = useSession();
 
 
     useEffect(() =>  onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs)), [db]);
+
+    useEffect(() => onSnapshot(collection(db, 'posts', id, 'likes'), snapshot => setLikes(snapshot.docs)) ,[]);
 
     const sendComment = async (e) => {
         e.preventDefault();
