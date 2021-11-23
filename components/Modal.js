@@ -3,17 +3,22 @@ import {modalState} from "../atoms/modalAtom";
 import {useRecoilState} from "recoil";
 import { Dialog, Transition } from '@headlessui/react'
 import {CameraIcon} from "@heroicons/react/outline";
+import {collection, addDoc} from '@firebase/firestore';
+import {useSession} from "next-auth/react";
 
 const Modal = () => {
     const [open, setOpen] = useRecoilState(modalState);
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const {data: session} = useSession();
+
     let filePickerRef = useRef(null);
     let captionRef = useRef(null);
 
 
-    const uploadPost = () => {
-        if(loading) {
+    const uploadPost = async () => {
+        if (loading) {
             return;
         }
         setLoading(true);
@@ -23,6 +28,14 @@ const Modal = () => {
         // get the post id for the newly created post
 
         // upload the image to the firebase storage with the post id as the name
+
+        // get the download url from the firebase storage and update original post with the image url
+
+        // 1st what we are doing, 2nd the collection name, 3rd the things we add to the database
+        const docRef = await addDoc(collection(db, 'posts'), {
+            username: session.user.username,
+            caption: captionRef.current.value,
+        });
 
     }
 
