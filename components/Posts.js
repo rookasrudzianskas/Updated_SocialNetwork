@@ -8,13 +8,12 @@ const Posts = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() =>  {
-        onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), snapshot => {
+        return onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), snapshot => {
            // realtime listening
            setPosts(snapshot.docs);
         });
 
-        return unsubscribe();
-    }, [db]);
+        }, [db]);
 
     return (
         <div>
