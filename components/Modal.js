@@ -26,14 +26,11 @@ const Modal = () => {
         setLoading(true);
 
         // create a post and add to the firestore post collection
-
         // get the post id for the newly created post
-
         // upload the image to the firebase storage with the post id as the name
-
         // get the download url from the firebase storage and update original post with the image url
-
         // 1st what we are doing, 2nd the collection name, 3rd the things we add to the database
+
         const docRef = await addDoc(collection(db, 'posts'), {
             username: session.user.username,
             caption: captionRef.current.value,
@@ -52,6 +49,8 @@ const Modal = () => {
                 image: downloadURL,
             });
         });
+
+
 
     }
 
