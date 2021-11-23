@@ -50,8 +50,9 @@ const Modal = () => {
             });
         });
 
-
-
+        setOpen(false);
+        setLoading(false);
+        setSelectedFile(null);
     }
 
     const addImageToPost = (e) => {
