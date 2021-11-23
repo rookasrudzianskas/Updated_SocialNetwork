@@ -10,7 +10,7 @@ import {
 import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
 import {useSession} from "next-auth/react";
 import {useState} from 'react';
-import {addDoc, collection, onSnapshot, orderBy, query, serverTimestamp} from "@firebase/firestore";
+import {addDoc, setDoc, collection, onSnapshot, orderBy, query, serverTimestamp, doc} from "@firebase/firestore";
 import {db} from "../firebase";
 import {useEffect} from 'react';
 import Moment from "react-moment";
@@ -22,9 +22,15 @@ const Post = ({username, caption, id, img, userImg}) => {
     const {data: session} = useSession();
 
 
-    useEffect(() =>  onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs)), [db]);
+    useEffect(() =>  onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs)), [db, id]);
 
-    useEffect(() => onSnapshot(collection(db, 'posts', id, 'likes'), snapshot => setLikes(snapshot.docs)) ,[]);
+    useEffect(() => onSnapshot(collection(db, 'posts', id, 'likes'), snapshot => setLikes(snapshot.docs)) ,[db, id]);
+
+    const likePost = async () => {
+        await setDoc(doc(db, 'posts', id, 'likes', session.user.uid), {
+            username: session.user.username,
+        });
+    }
 
     const sendComment = async (e) => {
         e.preventDefault();
