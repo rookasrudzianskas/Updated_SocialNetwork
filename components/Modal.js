@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {modalState} from "../atoms/modalAtom";
 import {useRecoilState} from "recoil";
 import { Dialog, Transition } from "@headlessui/react";
@@ -7,9 +7,9 @@ const Modal = () => {
     const [open, setOpen] = useRecoilState(modalState);
 
     return (
-        <div>
+        <Transition.Root show={open} as={Fragment}>
 
-        </div>
+        </Transition.Root>
     );
 };
 
