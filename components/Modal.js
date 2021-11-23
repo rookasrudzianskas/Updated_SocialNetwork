@@ -1,10 +1,12 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useRef} from 'react';
 import {modalState} from "../atoms/modalAtom";
 import {useRecoilState} from "recoil";
 import { Dialog, Transition } from '@headlessui/react'
 
 const Modal = () => {
     const [open, setOpen] = useRecoilState(modalState);
+    let completeButtonRef = useRef(null)
+
 
     return (
         <Transition.Root show={!!open} as={Fragment}>
@@ -39,6 +41,7 @@ const Modal = () => {
                         leave='ease-in duration-200'
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        // ref={completeButtonRef}
                     >
 
                     </Transition.Child>
