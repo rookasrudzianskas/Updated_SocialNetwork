@@ -13,6 +13,7 @@ import {useState} from 'react';
 import {addDoc, collection, onSnapshot, orderBy, query, serverTimestamp} from "@firebase/firestore";
 import {db} from "../firebase";
 import {useEffect} from 'react';
+import Moment from "react-moment";
 
 const Post = ({username, caption, id, img, userImg}) => {
     const [comment, setComment] = useState('');
@@ -66,6 +67,7 @@ const Post = ({username, caption, id, img, userImg}) => {
                         <div className="flex items-center space-x-2 mb-3" key={comment.id}>
                             <img  src={comment.data().userImage} alt="" className="h-7 rounded-full"/>
                             <p className="text-sm flex-1"><span className="font-bold">{comment.data().username} 👉 </span>{comment.data().comment}</p>
+                            <Moment fromNow>{comment.data().timestamp?.toDate()}</Moment>
                         </div>
                     ))}
                 </div>
