@@ -9,9 +9,10 @@ import {
 } from "@heroicons/react/outline";
 import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
 import {useSession} from "next-auth/react";
+import {useState} from 'react';
 
 const Post = ({username, caption, id, img, userImg}) => {
-
+    const [comments, setComments] = useState([]);
     const {data: session} = useSession();
 
     return (
