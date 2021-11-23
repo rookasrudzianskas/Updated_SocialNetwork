@@ -1,10 +1,12 @@
 import React from 'react';
 import {getProviders, signIn as SignIntoProvider } from "next-auth/react";
+import Header from "../../components/Header";
 
 // Browser ⁉️
 const signIn = ({ providers }) => {
     return (
         <>
+            <Header />
             {Object.values(providers).map((provider) => (
                 <div key={provider.name}>
                     <button onClick={() => SignIntoProvider(provider.id)}>
