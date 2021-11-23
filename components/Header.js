@@ -14,6 +14,7 @@ import {useSession} from "next-auth/react";
 const Header = () => {
 
     const {data: session, status} = useSession();
+    // console.log('🔥', session)
 
         return (
           <div className="shadow-sm border-b bg-white sticky top-0 z-50">
