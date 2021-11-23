@@ -65,7 +65,7 @@ const Post = ({username, caption, id, img, userImg}) => {
                     {comments.map(comment => (
                         <div className="flex items-center space-x-2 mb-3" key={comment.id}>
                             <img  src={comment.data().userImage} alt="" className="h-7 rounded-full"/>
-                            <p><span className="font-bold">{comment.data().username} </span>{comment.data().comment}</p>
+                            <p><span className="font-bold">{comment.data().username} 👉 </span>{comment.data().comment}</p>
                         </div>
                     ))}
                 </div>
