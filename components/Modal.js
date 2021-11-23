@@ -1,4 +1,4 @@
-import React, {Fragment, useRef} from 'react';
+import React, {Fragment, useRef, useState} from 'react';
 import {modalState} from "../atoms/modalAtom";
 import {useRecoilState} from "recoil";
 import { Dialog, Transition } from '@headlessui/react'
@@ -6,9 +6,21 @@ import {CameraIcon} from "@heroicons/react/outline";
 
 const Modal = () => {
     const [open, setOpen] = useRecoilState(modalState);
+    const [selectedFile, setSelectedFile] = useState(null);
     let filePickerRef = useRef(null);
     let captionRef = useRef(null);
 
+
+    const addImageToPost = (e) => {
+        const reader = new FileReader();
+        if(e.target.files[0]) {
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+        reader.onload = (readerEvent) => {
+            setSelectedFile(readerEvent.target.result);
+        }
+    }
 
     return (
         <Transition.Root show={!!open} as={Fragment}>
@@ -74,7 +86,7 @@ const Modal = () => {
                                                 type="file"
                                                 ref={filePickerRef}
                                                 hidden
-                                                // onChange={addImageToPost}
+                                                onChange={addImageToPost}
                                             />
                                         </div>
 
