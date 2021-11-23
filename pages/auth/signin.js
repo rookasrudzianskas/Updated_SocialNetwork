@@ -8,10 +8,13 @@ const signIn = ({ providers }) => {
         <>
             <Header />
 
-            <div>
+            <div className="flex flex-col items-center justify-center min-h-screen py-2 -mt-56 px-14 text-center">
+                <img className="w-80" src="https://links.papareact.com/ocw" alt=""/>
 
-                <img src="https://links.papareact.com/ocw" alt=""/>
-                
+                <p className="font-xs italic">
+                    This is not a REAL app, it is built to show for facebook, of what I am capable of! 🔥 ~Rokas
+                </p>
+
                 <div className="mt-40">
                     {Object.values(providers).map((provider) => (
                         <div key={provider.name}>
