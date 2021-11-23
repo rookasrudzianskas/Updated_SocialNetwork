@@ -12,7 +12,6 @@ const Posts = () => {
            // realtime listening
            setPosts(snapshot.docs);
         });
-
         }, [db]);
 
     return (
