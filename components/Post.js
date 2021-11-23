@@ -60,6 +60,8 @@ const Post = ({username, caption, id, img, userImg}) => {
                 <span className="font-bold mr-1">{username} </span>{caption}
             </p>
 
+
+
             {session && (
                 <form className="flex items-center p-4">
                     <EmojiHappyIcon className="h-7" />
