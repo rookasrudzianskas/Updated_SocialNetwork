@@ -10,7 +10,7 @@ import {
 import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid";
 import {useSession} from "next-auth/react";
 import {useState} from 'react';
-import {addDoc, setDoc, collection, onSnapshot, orderBy, query, serverTimestamp, doc} from "@firebase/firestore";
+import {addDoc, setDoc, collection, deleteDoc, onSnapshot, orderBy, query, serverTimestamp, doc} from "@firebase/firestore";
 import {db} from "../firebase";
 import {useEffect} from 'react';
 import Moment from "react-moment";
@@ -28,12 +28,18 @@ const Post = ({username, caption, id, img, userImg}) => {
 
     useEffect(() => onSnapshot(collection(db, 'posts', id, 'likes'), snapshot => setLikes(snapshot.docs)) ,[db, id]);
 
-    useEffect(() => setHasLiked(likes.findIndex((like) => (like.id === session?.user?.uid) !== -1)), [likes]);
+    useEffect(() => {
+        setHasLiked(likes.findIndex((like) => (like.id === session?.user?.uid) !== -1));
+    }, [likes]);
 
     const likePost = async () => {
-        await setDoc(doc(db, 'posts', id, 'likes', session.user.uid), {
-            username: session.user.username,
-        });
+        if(hasLiked) {
+            await deleteDoc(doc(db, 'posts', id, 'likes', session.user.uid));
+        } else {
+            await setDoc(doc(db, 'posts', id, 'likes', session.user.uid), {
+                username: session.user.username,
+            });
+        }
     }
 
     const sendComment = async (e) => {
