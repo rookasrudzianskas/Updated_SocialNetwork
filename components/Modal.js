@@ -4,7 +4,7 @@ import {useRecoilState} from "recoil";
 import { Dialog, Transition } from '@headlessui/react'
 import {CameraIcon} from "@heroicons/react/outline";
 import {collection, addDoc, serverTimestamp} from '@firebase/firestore';
-import {ref} from '@firebase/storage';
+import {ref, getDownloadURL, uploadString} from '@firebase/storage';
 import {useSession} from "next-auth/react";
 import {storage} from "../firebase";
 
@@ -44,6 +44,14 @@ const Modal = () => {
         console.log('New doc added with id', docRef.id);
 
         const imageRef = ref(storage, `posts/${docRef.id}/image`);
+
+        await uploadString(imageRef, selectedFile, "data_url").then(async snapshot => {
+            const downloadURL = await getDownloadURL(snapshot);
+            console.log('download url', downloadURL);
+            await docRef.update({
+                image: downloadURL,
+            });
+        });
 
     }
 
