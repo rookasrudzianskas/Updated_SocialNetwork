@@ -12,11 +12,17 @@ import {useSession} from "next-auth/react";
 import {useState} from 'react';
 import {addDoc, collection, serverTimestamp} from "@firebase/firestore";
 import {db} from "../firebase";
+import {useEffect} from 'react';
 
 const Post = ({username, caption, id, img, userImg}) => {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const {data: session} = useSession();
+
+
+    useEffect(() =>  {
+
+    }, [db]);
 
     const sendComment = async (e) => {
         e.preventDefault();
