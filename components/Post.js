@@ -60,7 +60,15 @@ const Post = ({username, caption, id, img, userImg}) => {
                 <span className="font-bold mr-1">{username} </span>{caption}
             </p>
 
-
+            {comments.length > 0 && (
+                <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
+                    {comments.map(comment => (
+                        <div className="flex items-center space-x-2 mb-3" key={comment.id}>
+                            <img  src={comment.data().image} alt="" className="h-7 rounded-full"/>
+                        </div>
+                    ))}
+                </div>
+            )}
 
             {session && (
                 <form className="flex items-center p-4">
