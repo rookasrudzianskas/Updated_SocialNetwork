@@ -3,10 +3,10 @@ import {modalState} from "../atoms/modalAtom";
 import {useRecoilState} from "recoil";
 import { Dialog, Transition } from '@headlessui/react'
 import {CameraIcon} from "@heroicons/react/outline";
-import {collection, addDoc, serverTimestamp} from '@firebase/firestore';
+import {collection, addDoc, serverTimestamp, updateDoc, doc} from '@firebase/firestore';
 import {ref, getDownloadURL, uploadString} from '@firebase/storage';
 import {useSession} from "next-auth/react";
-import {storage} from "../firebase";
+import {db, storage} from "../firebase";
 
 const Modal = () => {
     const [open, setOpen] = useRecoilState(modalState);
@@ -47,8 +47,8 @@ const Modal = () => {
 
         await uploadString(imageRef, selectedFile, "data_url").then(async snapshot => {
             const downloadURL = await getDownloadURL(snapshot);
-            console.log('download url', downloadURL);
-            await docRef.update({
+            // console.log('download url', downloadURL);
+            await updateDoc(doc(db, 'posts', docRef.id), {
                 image: downloadURL,
             });
         });
