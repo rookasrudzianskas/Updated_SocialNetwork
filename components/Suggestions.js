@@ -27,9 +27,6 @@ const Suggestions = () => {
                 <button className="text-gray-600 font-semibold">See All</button>
             </div>
 
-            {session && (
-                <Story img={session.user.image} username={session.user.username} />
-            )}
 
             {
                 suggestions.map(profile => (
