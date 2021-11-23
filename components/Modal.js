@@ -38,7 +38,7 @@ const Modal = () => {
             timestamp: serverTimestamp(),
         });
 
-        console.log('New doc added with id', docRef.id);
+        // console.log('New doc added with id', docRef.id);
 
         const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
