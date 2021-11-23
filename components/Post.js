@@ -44,8 +44,8 @@ const Post = ({username, caption, id, img, userImg}) => {
             {session && (
                 <form className="flex items-center p-4">
                     <EmojiHappyIcon className="h-7" />
-                    <input type="text" className="border-none flex-1 focus:ring-0 outline-none" placeholder="Add a comment..."/>
-                    <button className="font-semibold text-blue-400">Post</button>
+                    <input value={comment} onChange={e => setComment(e.target.value)} type="text" className="border-none flex-1 focus:ring-0 outline-none" placeholder="Add a comment..."/>
+                    <button type={'submit'} disabled={!comment.trim()} className="font-semibold text-blue-400">Post</button>
                 </form>
             )}
 
